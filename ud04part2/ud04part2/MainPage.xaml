@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ud04part2.MainPage"
+             Title="Gestión de Tareas">
+
+    <ContentPage.Content>
+        
+        <StackLayout Padding="20" Spacing="15">
+
+            <!-- Entry para ingresar la tarea -->
+            <Entry x:Name="TaskEntry" Placeholder="Introduce una nueva tarea" />
+
+            <!-- Botones para agregar, actualizar y eliminar tareas -->
+            <StackLayout Orientation="Horizontal" Spacing="10">
+                
+                <Button Text="Agregar" Clicked="AddTask" />
+                <Button Text="Actualizar" Clicked="UpdateTask" />
+                <Button Text="Eliminar" Clicked="DeleteTask" />
+            
+            </StackLayout>
+
+            <!-- ListView para mostrar la lista de tareas -->
+            <CollectionView  x:Name="TaskList"
+                      ItemsSource="{Binding Tasks}"
+                      SelectionChanged="OnTaskSelected">
+                
+                <CollectionView.ItemTemplate>
+        
+                    <DataTemplate>
+                
+                        <StackLayout Padding="10">
+                        
+                            <Label Text="{Binding NombreTarea}" FontSize="18" />
+                        
+                        </StackLayout>
+                    
+                    </DataTemplate>
+                
+                </CollectionView.ItemTemplate>
+            
+            </CollectionView>
+
+        </StackLayout>
+    </ContentPage.Content>
+
+</ContentPage>
